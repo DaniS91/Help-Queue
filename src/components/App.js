@@ -1,18 +1,12 @@
 import React from "react";
 import Header from "./Header";
-import TicketList from "./TicketList"
+import TicketControl from "./TicketControl"
 
 function App() {
-  const name = "Thato";
-  const name2 = "Haley";
   return (
     <React.Fragment>
       <Header />
-      <h3>3a</h3>
-      <h3>{name} and {name2}</h3>
-      <p><em>Firebase entries not saving!</em></p>
-      {/* This is a JSX comment */}
-      <hr/>
+      <TicketControl />
     </React.Fragment>
   );
 }

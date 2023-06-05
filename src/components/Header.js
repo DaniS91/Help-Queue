@@ -4,8 +4,7 @@ import ticketsImage from "./../img/tickets-image.png"
 function Header() {
   return (
     <React.Fragment>
-      <h1>Help Queue</h1>
-      <img src={ticketsImage} alt="An image of tickets" />
+      <h1><img src={ticketsImage} alt="a ticket" height="32"/>Help Queue</h1>
     </React.Fragment>
   );
 }
