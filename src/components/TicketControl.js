@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import NewTicketForm from './NewTicketForm';
 import TicketList from './TicketList';
 import EditTicketForm from './EditTicketForm';
@@ -27,9 +27,8 @@ function TicketControl() {
   }
 
   const handleAddingNewTicketToList = async (newTicketData) => {
-    await AudioScheduledSourceNode(collection(db, "tickets"), newTicketData);
-    const newMainTicketList = mainTicketList.concat(newTicket);
-    setMainTicketList(newMainTicketList);
+
+    await addDoc(collection(db, "tickets"), newTicketData);
     setFormVisibleOnPage(false);
   }
 
