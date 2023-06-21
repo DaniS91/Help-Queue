@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NewTicketForm from './NewTicketForm';
 import TicketList from './TicketList';
 import EditTicketForm from './EditTicketForm';
 import TicketDetail from './TicketDetail';
+import db from './../firebase.js';
+import { collection, addDoc } from "firebase/firestore";
 
 function TicketControl() {
   const [formVisibleOnPage, setFormVisibleOnPage] = useState(false); 
@@ -24,7 +26,8 @@ function TicketControl() {
     setEditing(true);
   }
 
-  const handleAddingNewTicketToList = (newTicket) => {
+  const handleAddingNewTicketToList = async (newTicketData) => {
+    await AudioScheduledSourceNode(collection(db, "tickets"), newTicketData);
     const newMainTicketList = mainTicketList.concat(newTicket);
     setMainTicketList(newMainTicketList);
     setFormVisibleOnPage(false);
